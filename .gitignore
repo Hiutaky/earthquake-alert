@@ -1,0 +1,6 @@
+.DS_Store
+.env
+processed_earthquakes.json
+
+/node_modules
+/src/media/*

@@ -1,11 +1,26 @@
 {
   "name": "earthquake-alert",
+  "type": "module",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Send Telegram notification based on INGV live earthquake data.",
+  "main": "src/index.ts",
   "scripts": {
+    "prettier:fix": "npx prettier . --write",
+    "start": "bun run ./src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^22.5.1",
+    "canvas": "^3.0.0-rc2",
+    "prettier": "^3.3.3",
+    "sharp": "^0.33.5",
+    "staticmaps": "^1.13.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "@types/staticmaps": "^1.12.5"
+  }
 }
