@@ -1,5 +1,8 @@
 # Earthquake Alert Bot
 
+![Alt text](screenshot.png?raw=true "Telegram Message Example")
+
+
 [English](#english) | [Italiano](#italiano)
 
 ## English
