@@ -1,5 +1,6 @@
 import { __baseDir } from "../constants";
 import { createCanvas, loadImage, Image } from "canvas";
+import { existsSync, mkdirSync } from "fs";
 import * as fs from "fs/promises";
 import * as path from "path";
 
@@ -53,9 +54,10 @@ export const generateMap = async (
   drawText(location, locationX, locationY, 14);
 
   const outputBuffer = canvas.toBuffer("image/png");
-  const outputPath = path.join(__baseDir, "media", "maps", `${eventId}.png`);
+  const outputFolder = path.join(__baseDir, "media", "maps");
+  if (!existsSync(outputFolder)) mkdirSync(outputFolder);
+  const outputPath = path.join(outputFolder, `${eventId}.png`);
   await fs.writeFile(outputPath, outputBuffer);
-
   return true;
 };
 
