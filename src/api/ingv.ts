@@ -4,13 +4,13 @@ import { time } from "../constants";
 
 //uncomment just for development purpose
 
-const response : string = `#EventID|Time|Latitude|Longitude|Depth/Km|Author|Catalog|Contributor|ContributorID|MagType|Magnitude|MagAuthor|EventLocationName|EventType
+const response: string = `#EventID|Time|Latitude|Longitude|Depth/Km|Author|Catalog|Contributor|ContributorID|MagType|Magnitude|MagAuthor|EventLocationName|EventType
 40271581|2024-08-30T19:23:15.940000|40.831333|14.147833|2.4|SURVEY-INGV-OV#SiSmi||||Md|3.7|--|Campi Flegrei|earthquake
 40271671|2024-08-30T19:23:57.460000|40.830833|14.148667|2.4|SURVEY-INGV-OV#SiSmi||||Md|2.0|--|Campi Flegrei|earthquake
 40273591|2024-08-31T05:46:56.910000|38.3687|15.3812|114.8|SURVEY-INGV||||ML|2.2|--|Costa Siciliana nord-orientale (Messina)|earthquake
 40276151|2024-08-31T11:10:10.920000|38.3098|15.2163|114.4|SURVEY-INGV||||ML|2.0|--|Costa Siciliana nord-orientale (Messina)|earthquake
 40277191|2024-08-31T13:24:42.910000|38.305|14.8093|120.5|SURVEY-INGV||||ML|2.1|--|Costa Siciliana nord-orientale (Messina)|earthquake
-`
+`;
 
 /**
  * TYPES
@@ -98,7 +98,7 @@ const INGV = {
   get: async () => {
     const uriQueryParams = new URLSearchParams(getDefaultQuery()).toString();
     const requestUri = `${BASE_URI}?${uriQueryParams}`;
-    console.log(requestUri)
+    console.log(requestUri);
 
     const response = await (await fetch(requestUri)).text();
     if (response !== "") {
@@ -156,7 +156,9 @@ const parseResponse = (raw: string) => {
     });
     result.push(measurement);
   });
-  return result.length > 1 ? result.sort( ( a , b ) => a.eventId - b.eventId ) : result;
+  return result.length > 1
+    ? result.sort((a, b) => a.eventId - b.eventId)
+    : result;
 };
 
 export default INGV;
