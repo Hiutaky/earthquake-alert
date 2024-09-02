@@ -3,4 +3,4 @@
 processed_earthquakes.json
 
 /node_modules
-/src/media/*
+/src/media/maps/*
